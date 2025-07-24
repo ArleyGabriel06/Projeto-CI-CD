@@ -22,7 +22,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/hello-fastapi${{ github.sha }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/hello-fastapi:latest
 
   update-manifest:
     needs: build-and-push
@@ -36,7 +36,7 @@ jobs:
 
     - name: Update image tag in deployment
       run: |
-        sed -i "s|image: .*|image: tags: ${{ secrets.DOCKER_USERNAME }}/hello-fastapi${{ github.sha }}|" deployment.yaml
+        sed -i "s|image: .*|image: tags: ${{ secrets.DOCKER_USERNAME }}/hello-fastapi$:latest|" deployment.yaml
 
 
     - name: Commit and push changes
