@@ -31,7 +31,7 @@ jobs:
     - name: Checkout manifests repository
       uses: actions/checkout@v3
       with:
-        repository: ArleyGabriel06/hello-manifests 
+        repository: ArleyGabriel06/hello-manifests
         token: ${{ secrets.GB_TOKEN }}
         path: hello-manifests
 
