@@ -43,5 +43,5 @@ jobs:
       run: |
         git config --global user.name '${{ secrets.USER_NAME }}'
         git config --global user.email '${{ secrets.EMAIL_NAME }}'
-        git commit -am "Update image to ${{ github.sha }}"
+        git commit -am "Atualiza imagem para 'latest' - $(date +'%d/%m/%Y %H:%M')"
         git push
