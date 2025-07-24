@@ -33,14 +33,12 @@ jobs:
         with:
           repository: ArleyGabriel06/hello-manifests
           token: ${{ secrets.GB_TOKEN }}
-          path: hello-manifests  # ✅ importante para o sed funcionar
-
+          
       - name: Atualizar imagem no YAML
         run: |
-          sed -i 's|image: .*|image: '"${{ secrets.DOCKER_USERNAME }}"'/hello-fastapi:'"${{ github.sha }}"'|' hello-manifests/deployment.yaml
+          sed -i 's|image: .*|image: '"${{ secrets.DOCKER_USERNAME }}"'/hello-fastapi:'"${{ github.sha }}"'|' deployment.yaml
 
       - name: Commit and push changes
-        working-directory: hello-manifests  # ✅ necessário para git funcionar dentro da pasta
         run: |
           git config user.name '${{ secrets.USER_NAME }}'
           git config user.email '${{ secrets.EMAIL_NAME }}'
