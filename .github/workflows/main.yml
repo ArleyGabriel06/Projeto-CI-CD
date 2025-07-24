@@ -22,7 +22,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/hello-fastapi:latest:${{ github.sha }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/hello-fastapi:latest
 
   update-manifest:
     needs: build-and-push
